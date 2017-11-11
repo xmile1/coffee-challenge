@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 display: flex
 `
 
-const Game = ({totalDrunk, numberOfCups, handlePause})=>(
+const Game = ({totalDrunk, numberOfCups, handlePause, addCoffee})=>(
   <div>
     <HighScore/>
     <Wrapper>
@@ -20,7 +20,7 @@ const Game = ({totalDrunk, numberOfCups, handlePause})=>(
     </Wrapper>
     <Wrapper>
     {Array.apply(null, Array(numberOfCups)).map((e)=>{
-      return (<Cup index={e} game={true}/>)
+      return (<Cup index={e} game={true} addCoffee={addCoffee}/>)
     })}
     </Wrapper>
   </div>

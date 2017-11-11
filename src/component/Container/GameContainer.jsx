@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Game from '../Presentation/Game'
-import {addCoffee} from 'actions'
+import {addCoffee, setGameStatus} from 'actions'
 
 
 class GameContainer extends Component{
@@ -13,6 +13,7 @@ constructor(props){
 
   componentDidMount=()=>{
       let intervalId = setInterval(this.addCoffee, 3000);
+      this.props.setGameStatus('startgame', intervalId)
   }
 
 addCoffee = ()=>{
@@ -43,6 +44,6 @@ const mapState = (state)=>{
   return{numberOfCups: state.noOfCups, quantity: state.quantity}
 }
 
-const mapDispatch= {addCoffee}
+const mapDispatch= {addCoffee, setGameStatus}
 
 export default connect(mapState, mapDispatch)(GameContainer);

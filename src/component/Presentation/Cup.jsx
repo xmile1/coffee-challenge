@@ -22,7 +22,7 @@ padding: 2px;
 
 const Coffee = CupDiv.extend`
   background-color: black;
-    height: 20px;
+    height: ${({coffeeQuantity}) => coffeeQuantity ? `${coffeeQuantity}%` : '0%'};
     bottom: 0px;
     position: absolute;
     bottom: 0;
@@ -30,9 +30,9 @@ const Coffee = CupDiv.extend`
 `
 
 
-const Cup = ({index, game})=>(
+const Cup = ({index, game, coffeeQuantity})=>(
 <CupDiv key={index}>
-<Coffee>
+<Coffee coffeeQuantity={coffeeQuantity}>
 </Coffee>
 {game && <Drink>Drink</Drink>}
 </CupDiv>

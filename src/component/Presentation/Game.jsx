@@ -1,7 +1,7 @@
 import React from 'react'
 import HighScore from './HighScore'
 import styled from 'styled-components'
-import Cup from './Cup'
+import CupContainer from '../Container/CupContainer'
 
 const Pause = styled.button`
 
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 display: flex
 `
 
-const Game = ({totalDrunk, numberOfCups, handlePause, addCoffee})=>(
+const Game = ({totalDrunk, numberOfCups, handlePause, coffeeQuantity})=>(
   <div>
     <HighScore/>
     <Wrapper>
@@ -19,8 +19,8 @@ const Game = ({totalDrunk, numberOfCups, handlePause, addCoffee})=>(
     <Pause onClick={handlePause}>Take a break / Restart</Pause>
     </Wrapper>
     <Wrapper>
-    {Array.apply(null, Array(numberOfCups)).map((e)=>{
-      return (<Cup index={e} game={true} addCoffee={addCoffee}/>)
+    {Array.apply(null, Array(numberOfCups)).fill(0).map((e,i)=>{
+      return (<CupContainer index={i} game={true} coffeeQuantity={coffeeQuantity}/>)
     })}
     </Wrapper>
   </div>

@@ -12,10 +12,11 @@ module.exports = {
     modules: ['node_modules', path.resolve(__dirname, 'src')]},
   module: {
      loaders: [
-         { test: /\.(js|jsx)$/, exclude: /node_modules/, loaders: 'babel-loader',
+         { test: /(\.js|\.jsx)$/, exclude: /node_modules/, loaders: 'babel-loader',
         query: {
           presets: ['react']
-        } }
+        } },
+        {test: /(\.css)$/, loaders: ['style-loader', 'css-loader']}
      ],
    },
   devServer: {

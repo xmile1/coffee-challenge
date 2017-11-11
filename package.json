@@ -12,36 +12,35 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "rc-slider": "^8.4.0",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
+    "redux-localstorage": "^0.4.1",
     "redux-logger": "^3.0.6",
+    "redux-persist": "^4.10.2",
     "redux-thunk": "^2.2.0",
     "styled-components": "^2.2.3"
   },
   "babel": {
     "presets": [
-      "react",
-      [
-        "env",
-        {
-          "targets": {
-            "browsers": [
-              "last 2 versions"
-            ]
-          }
-        }
-      ]
+      "env"
+    ],
+    "plugins": [
+      "transform-class-properties"
     ]
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
     "eslint": "^4.11.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-react-app": "^2.0.1",
@@ -49,6 +48,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.4.0",
+    "style-loader": "^0.19.0",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   }

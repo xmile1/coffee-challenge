@@ -1,13 +1,15 @@
 import React from 'react';
-import {Router, Route} from 'react-router';
+import {Router, Route, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
-import Home from 'component/Home';
+import Home from './component/Container/HomeContainer';
 import { createBrowserHistory } from 'history'
 
 const Routes = () => {
   return (
     <Router history={createBrowserHistory()}>
-        <Route path="/" component={Home}/>
+       <Switch>
+        <Route exact path="/" component={Home}/>
+     </Switch>
     </Router>
   )
 };

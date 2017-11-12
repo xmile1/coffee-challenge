@@ -1,8 +1,17 @@
 import React from 'react'
-const HighScore = ({score, cups})=>(
-  <div>
+import styled from 'styled-components'
+
+const Div = styled.div`
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  color: #757575;
+`
+
+const HighScore = ({ score, cups }) => (
+  <Div>
     Highscore: {score}ml with {cups}cups
-  </div>
+  </Div>
 )
 
 export default HighScore

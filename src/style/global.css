@@ -1,0 +1,12 @@
+body{
+  font-family: monospace;
+  font-size: larger;
+}
+
+.rc-slider-track{
+      background-color: #4CAF50;
+}
+
+.rc-slider-handle{
+  border: solid 2px #4CAF50;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-const GameState = ({gameState})=>(
+const GameState = ({ gameState }) => (
   <div>
     {gameState}
   </div>

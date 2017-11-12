@@ -1,17 +1,17 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import HighScore from '../Presentation/HighScore';
 
-class HighScoreContainer extends Component{
+class HighScoreContainer extends Component {
 
-  render(){
-    return(
-    <HighScore {...this.props} />
+  render() {
+    return (
+      <HighScore {...this.props} />
     )
   }
 }
 
-const mapState = (state)=>{
+const mapState = (state) => {
   return state.HighScore
 }
 

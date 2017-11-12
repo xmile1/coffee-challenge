@@ -3,29 +3,40 @@ import HighScore from '../Container/HighScoreContainer'
 import styled from 'styled-components'
 import CupContainer from '../Container/CupContainer'
 import GameStateContainer from '../Container/GameStateContainer'
+import { Div, CupWrapper, MaterialButton } from 'style/reuse'
 
-const Pause = styled.button`
-
+const Pause = MaterialButton.extend`
+  padding: 10px 12px;
+  margin: unset;
 `
 
 const Wrapper = styled.div`
-display: flex
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: ${props => props.marginTop};
+  justify-content: ${props => props.justify ? props.justify : 'space-between'};
+  width: 30%;
 `
 
-const Game = ({score, numberOfCups, handlePause, coffeeQuantity, gameState})=>(
-  <div>
-    <HighScore/>
+
+
+
+const Game = ({ score, numberOfCups, handlePause, coffeeQuantity, gameState }) => (
+  <Div>
+    <HighScore />
     <Wrapper>
-    <div>Total Drunk ml: {score}</div>
-    <Pause onClick={handlePause}>Take a break / Restart</Pause>
+      <div>Total Drunk ml: {score}</div>
+      <Pause onClick={handlePause}>Take a break / Restart</Pause>
     </Wrapper>
-    <Wrapper>
-    {Array.apply(null, Array(numberOfCups)).fill(0).map((e,i)=>{
-      return (<CupContainer index={i} game={true} coffeeQuantity={coffeeQuantity}/>)
-    })}
-    <GameStateContainer/>
+    <CupWrapper>
+      {Array.apply(null, Array(numberOfCups)).fill(0).map((e, i) => {
+        return (<CupContainer index={i} game={true} coffeeQuantity={coffeeQuantity} />)
+      })}
+    </CupWrapper>
+    <Wrapper marginTop={"20px"} justify={"center"}>
+      <GameStateContainer />
     </Wrapper>
-  </div>
+  </Div>
 )
 
 export default Game

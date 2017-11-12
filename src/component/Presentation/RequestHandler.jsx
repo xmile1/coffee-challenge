@@ -1,22 +1,30 @@
 import React from 'react'
 import styled from 'styled-components';
+import { MaterialButton } from 'style/reuse'
 
 const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20%;
+`
+
+const Text = styled.div`
 
 `
 
-const Button = styled.button`
-
+const Button = MaterialButton.extend`
+    padding: 20px 30px;
 `
 
-const RequestHandler = ({statusCode, handleClick, resStatus}) =>(
+const RequestHandler = ({ statusCode, handleClick, resStatus }) => (
   <Div>
     <Button onClick={handleClick}>
-      Request {statusCode || 200}
+      Click to Request ({statusCode || 200})
     </Button>
-    <Div>
-      {resStatus}
-    </Div>
+    <Text>
+      You Got {resStatus}
+    </Text>
 
   </Div>
 )

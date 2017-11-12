@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   margin-bottom: 20px;
   margin-top: ${props => props.marginTop};
   justify-content: ${props => props.justify ? props.justify : 'space-between'};
-  width: 30%;
+  width: 40%;
 `
 
 

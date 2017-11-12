@@ -31,6 +31,13 @@ const GreenButton = MaterialButton.extend`
 padding: 4px 13px;
     background-color: #388E3C;
     height: 25px;
+    &:hover {
+     background-color: #FF5252;
+   }
+   &:disabled{
+     background-color: #BDBDBD;
+     cursor:unset;
+   }
 `
 
 

@@ -6,27 +6,23 @@ import { addCoffee, setGameStatus } from 'actions'
 
 class GameContainer extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
   componentDidMount = () => {
-    let intervalId = setInterval(this.addCoffee, 3000);
+        let time = this.getRandomInt(300, 3000)
+    let intervalId = setInterval(this.addCoffee, time);
     this.props.setGameStatus('startgame', intervalId)
   }
 
   addCoffee = () => {
-    let quantity = this.getRandomInt(0, 45)
+    // 50ml is 10% and 100ml is 40% of 250ml
+    let quantity = this.getRandomInt(10, 40)
     this.props.addCoffee(quantity)
-    this.setState({
-      quantity: this.props.quantity
-    })
   }
+
 
   handlePause = () => {
     if (this.props.gameState === 'Game Paused') {
-      let intervalId = setInterval(this.addCoffee, 3000);
+        let time = this.getRandomInt(300, 3000)
+      let intervalId = setInterval(this.addCoffee, time);
       return this.props.setGameStatus('resumegame', intervalId)
     }
     if (this.props.gameState === 'Game Over') {

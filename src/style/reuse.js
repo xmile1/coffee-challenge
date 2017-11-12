@@ -26,4 +26,5 @@ export const MaterialButton = styled.button`
   color: #ecf0f1;
   transition: background-color .3s;
   padding: 1px 5px;
+  cursor: pointer;
 `

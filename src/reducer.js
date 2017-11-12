@@ -17,8 +17,8 @@ const reducer = (state=initialState, action)=>{
     case SET_CUPS:return Object.assign({}, state, {"noOfCups": action.cups})
     case ADD_QUANTITY:return Object.assign({}, state, {"quantity": action.quantity})
     case SET_CURRENT_COFFEE: return { ...state,currentQuantity: {...state.currentQuantity, [action.index]: action.quantity}}
-    case END_GAME: return {...initialState, noOfCups: state.noOfCups, HighScore: {...state.HighScore, cups: action.cups, ml: action.ml}}
-    case START_GAME: return {...state, intervalId: action.intervalId, currentQuantity:{} }
+    case END_GAME: return {...state, status:'gameover', HighScore: {...state.HighScore, cups: action.cups, ml: action.ml}}
+    case START_GAME: return {...state, status:'gamestarted', intervalId: action.intervalId, currentQuantity:{} }
     default: return state
   }
 }

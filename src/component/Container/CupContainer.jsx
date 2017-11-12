@@ -7,9 +7,6 @@ class CupContainer extends Component{
 
   constructor(props){
    super(props)
-   this.state = {
-     coffeeQuantity: 0
-   }
   }
 
 componentWillReceiveProps(nextProps){
@@ -19,19 +16,16 @@ componentWillReceiveProps(nextProps){
 
   if (coffeeQuantity >= 100) {
     clearInterval(this.props.intervalId)
-    return this.props.setGameStatus('gameover');
-
+    coffeeQuantity = 0
+    this.props.setGameStatus('gameover');
   }
-  this.setState({
-    coffeeQuantity
-  })
-  console.log(coffeeQuantity, "coffeeQuantity");
   this.props.setCurrentCoffee(coffeeQuantity, this.props.index )
 }
 }
 
   render(){
-    let props = Object.assign({}, ...this.props, {coffeeQuantity: this.props.currentQuantity(this.props.index)})
+    let props = {...this.props, coffeeQuantity: this.props.currentQuantity(this.props.index)}
+console.log(props, "props")
     return(
     <Cup {...props} />
     )

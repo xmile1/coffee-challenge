@@ -19,9 +19,9 @@ constructor(props){
 addCoffee = ()=>{
   let quantity = this.getRandomInt(0,45)
   this.props.addCoffee(quantity)
-  this.state = {
+  this.setState({
     quantity: this.props.quantity
-  }
+  })
 }
 
 // this was gotten from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -31,17 +31,20 @@ getRandomInt = (min, max) =>{
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-  render(){
-    let {numberOfCups, quantity} = this.props
+render(){
+    let {numberOfCups, quantity, gameState} = this.props
     return(
-    <Game numberOfCups={numberOfCups} coffeeQuantity={quantity}/>
+    <Game numberOfCups={numberOfCups} coffeeQuantity={quantity} gameState={gameState}/>
     )
   }
 }
 
 
 const mapState = (state)=>{
-  return{numberOfCups: state.noOfCups, quantity: state.quantity}
+  return{ numberOfCups: state.noOfCups,
+    quantity: state.quantity,
+    gameState: state.status
+  }
 }
 
 const mapDispatch= {addCoffee, setGameStatus}

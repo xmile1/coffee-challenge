@@ -2,7 +2,7 @@ import React from 'react'
 import HighScore from '../Container/HighScoreContainer'
 import styled from 'styled-components'
 import CupContainer from '../Container/CupContainer'
-import GameOver from './GameOver'
+import GameStateContainer from '../Container/GameStateContainer'
 
 const Pause = styled.button`
 
@@ -23,7 +23,7 @@ const Game = ({score, numberOfCups, handlePause, coffeeQuantity, gameState})=>(
     {Array.apply(null, Array(numberOfCups)).fill(0).map((e,i)=>{
       return (<CupContainer index={i} game={true} coffeeQuantity={coffeeQuantity}/>)
     })}
-    {gameState==='gameover' && <GameOver/>}
+    <GameStateContainer/>
     </Wrapper>
   </div>
 )

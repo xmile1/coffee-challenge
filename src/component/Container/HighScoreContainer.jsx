@@ -12,7 +12,6 @@ class HighScoreContainer extends Component{
 }
 
 const mapState = (state)=>{
-  console.log(state.HighScore, "HighScore")
   return state.HighScore
 }
 

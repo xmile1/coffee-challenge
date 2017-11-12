@@ -6,6 +6,8 @@ export const END_GAME = "END_GAME"
 export const START_GAME = "START_GAME"
 export const UPDATE_SCORE = "UPDATE_SCORE"
 export const UPDATE_HIGH_SCORE = "UPDATE_HIGH_SCORE"
+export const PAUSE_GAME = "PAUSE_GAME"
+export const RESUME_GAME = "RESUME_GAME"
 
 export const setCups = (cups) => (dispatch) => {
   dispatch({type: SET_CUPS, cups})
@@ -22,6 +24,8 @@ export const setCurrentCoffee = (quantity, index) => (dispatch) => {
 export const setGameStatus = (status, intervalId, score, cups, currentHighScore) => (dispatch) => {
   if (status === 'gameover') dispatch({type: END_GAME}); dispatch(setHighScore(score, cups, currentHighScore))
   if (status === 'startgame') dispatch({type: START_GAME, intervalId})
+  if (status === 'pausegame') dispatch({type: PAUSE_GAME})
+  if (status === 'resumegame') dispatch({type: RESUME_GAME, intervalId})
 }
 
 export const updateScore = (currentScore, quantity) => (dispatch) => {

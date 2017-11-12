@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Home from '../Presentation/Home';
 import {setCups} from 'actions';
+import {Link} from 'react-router-dom';
 
 class HomeContainer extends Component{
 
@@ -13,7 +14,10 @@ setCups = (value)=>{
   render(){
     const {numberOfCups} = this.props
     return(
-    <Home numberOfCups={numberOfCups} setCups={this.setCups} startGame={this.startGame}  />
+      <div>
+        <Home numberOfCups={numberOfCups} setCups={this.setCups} startGame={this.startGame}  />
+        <Link to="/req">Visit Request Page</Link>
+      </div>
     )
   }
 }

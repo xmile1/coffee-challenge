@@ -3,6 +3,7 @@ import {Router, Route, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Home from './component/Container/HomeContainer';
 import Game from './component/Container/GameContainer'
+import Request from './component/Container/RequestHandlerContainer'
 import { createBrowserHistory } from 'history'
 
 const Routes = () => {
@@ -10,7 +11,8 @@ const Routes = () => {
     <Router history={createBrowserHistory()}>
        <Switch>
         <Route exact path="/" component={Home}/>
-        <Route path="/Game" component={Game}/>
+        <Route path="/game" component={Game}/>
+        <Route path="/req" component={Request}/>
      </Switch>
     </Router>
   )

@@ -1,4 +1,4 @@
-import {SET_CUPS, ADD_QUANTITY, SET_CURRENT_COFFEE, UPDATE_SCORE, UPDATE_HIGH_SCORE, END_GAME, START_GAME, PAUSE_GAME, RESUME_GAME} from './actions'
+import {SET_CUPS, ADD_QUANTITY, SET_CURRENT_COFFEE, UPDATE_SCORE, UPDATE_HIGH_SCORE, END_GAME, START_GAME, PAUSE_GAME, RESUME_GAME, SET_API_RESPONSE, UPDATE_STATUS_CODE} from './actions'
 
 let initialState = {
   HighScore: {
@@ -11,6 +11,10 @@ let initialState = {
   currentQuantity:{},
   status: '',
   intervalId: 0,
+  api:{
+    statusCode: 200,
+    resStatus: ''
+  }
 };
 
 const reducer = (state=initialState, action)=>{
@@ -24,6 +28,9 @@ const reducer = (state=initialState, action)=>{
     case PAUSE_GAME: return {...state, status:'Game Paused'}
     case RESUME_GAME: return {...state, status:'Game Started', intervalId: action.intervalId}
     case START_GAME: return {...state, status:'Game Started',  score:0, intervalId: action.intervalId, currentQuantity:{} }
+    case SET_API_RESPONSE: return {...state, api:{...state.api, resStatus: action.resStatus} }
+    case UPDATE_STATUS_CODE: return {...state, api:{...state.api, statusCode: action.statusCode} }
+
     default: return state
   }
 }

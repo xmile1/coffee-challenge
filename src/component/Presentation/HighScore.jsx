@@ -1,7 +1,7 @@
 import React from 'react'
-const HighScore = ({ml, cup})=>(
+const HighScore = ({score, cups})=>(
   <div>
-    Highscore: {ml}ml with {cup}cups
+    Highscore: {score}ml with {cups}cups
   </div>
 )
 

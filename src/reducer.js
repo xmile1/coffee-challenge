@@ -1,10 +1,11 @@
-import {SET_CUPS, ADD_QUANTITY, SET_CURRENT_COFFEE, SET_GAME_STATUS, END_GAME, START_GAME} from './actions'
+import {SET_CUPS, ADD_QUANTITY, SET_CURRENT_COFFEE, UPDATE_SCORE, UPDATE_HIGH_SCORE, END_GAME, START_GAME} from './actions'
 
 let initialState = {
   HighScore: {
     cups: 0,
-    ml: 0
+    score: 0
   },
+  score: 0,
   noOfCups: 4,
   quantity: 50,
   currentQuantity:{},
@@ -17,8 +18,10 @@ const reducer = (state=initialState, action)=>{
     case SET_CUPS:return Object.assign({}, state, {"noOfCups": action.cups})
     case ADD_QUANTITY:return Object.assign({}, state, {"quantity": action.quantity})
     case SET_CURRENT_COFFEE: return { ...state,currentQuantity: {...state.currentQuantity, [action.index]: action.quantity}}
-    case END_GAME: return {...state, status:'gameover', HighScore: {...state.HighScore, cups: action.cups, ml: action.ml}}
-    case START_GAME: return {...state, status:'gamestarted', intervalId: action.intervalId, currentQuantity:{} }
+    case UPDATE_SCORE: return {...state, score: action.score}
+    case UPDATE_HIGH_SCORE: return {...state, HighScore:{...state.HighScore, cups:action.cups, score:action.score}}
+    case END_GAME: return {...state, status:'gameover'}
+    case START_GAME: return {...state, status:'gamestarted',  score:0, intervalId: action.intervalId, currentQuantity:{} }
     default: return state
   }
 }

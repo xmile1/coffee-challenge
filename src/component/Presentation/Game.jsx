@@ -1,5 +1,5 @@
 import React from 'react'
-import HighScore from './HighScore'
+import HighScore from '../Container/HighScoreContainer'
 import styled from 'styled-components'
 import CupContainer from '../Container/CupContainer'
 import GameOver from './GameOver'
@@ -12,11 +12,11 @@ const Wrapper = styled.div`
 display: flex
 `
 
-const Game = ({totalDrunk, numberOfCups, handlePause, coffeeQuantity, gameState})=>(
+const Game = ({score, numberOfCups, handlePause, coffeeQuantity, gameState})=>(
   <div>
     <HighScore/>
     <Wrapper>
-    <div>Total Drunk ml: {totalDrunk}</div>
+    <div>Total Drunk ml: {score}</div>
     <Pause onClick={handlePause}>Take a break / Restart</Pause>
     </Wrapper>
     <Wrapper>

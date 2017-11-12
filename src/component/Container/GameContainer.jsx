@@ -32,9 +32,9 @@ getRandomInt = (min, max) =>{
 }
 
 render(){
-    let {numberOfCups, quantity, gameState} = this.props
+    let {numberOfCups, quantity, gameState, score} = this.props
     return(
-    <Game numberOfCups={numberOfCups} coffeeQuantity={quantity} gameState={gameState}/>
+    <Game numberOfCups={numberOfCups} coffeeQuantity={quantity} gameState={gameState} score={score}/>
     )
   }
 }
@@ -43,7 +43,8 @@ render(){
 const mapState = (state)=>{
   return{ numberOfCups: state.noOfCups,
     quantity: state.quantity,
-    gameState: state.status
+    gameState: state.status,
+    score: state.score,
   }
 }
 

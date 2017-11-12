@@ -1,8 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import HighScore from './HighScore';
+import HighScore from '../Container/HighScoreContainer';
 import Cup from './Cup'
-import Slider, { Range } from 'rc-slider';
+import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom'

@@ -41,7 +41,7 @@ export const setHighScore = (score, cups, currentHighScore) => dispatch =>{
   if (score > currentHighScore) dispatch({type: UPDATE_HIGH_SCORE, score, cups})
 }
 
-export const requestAPI = (statusCode) => (dispatch) => {
+export const requestAPI = (statusCode=200) => (dispatch) => {
   let newStatusCode
   switch(statusCode){
     case 200: newStatusCode = 400

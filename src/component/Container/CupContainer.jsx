@@ -26,7 +26,7 @@ drink = ()=>{
 }
 
   render(){
-    let props = {...this.props, coffeeQuantity: this.props.currentQuantity(this.props.index),  drink: this.drink}
+    let props = {...this.props, coffeeQuantity: this.props.currentQuantity(this.props.index),  drink: this.drink, disableButton: this.props.gameStatus !== 'Game Started'}
     return(
     <Cup {...props} />
     )
@@ -34,7 +34,7 @@ drink = ()=>{
 }
 
 const mapState = (state)=>{
-  return{numberOfCups: state.noOfCups, currentQuantity: (index)=>state.currentQuantity[index], intervalId: state.intervalId, score: state.score, currentHighScore: state.HighScore.score}
+  return{numberOfCups: state.noOfCups, currentQuantity: (index)=>state.currentQuantity[index], intervalId: state.intervalId, score: state.score, currentHighScore: state.HighScore.score, gameStatus: state.status}
 }
 
 const mapDispatch = {setCurrentCoffee, setGameStatus, updateScore}

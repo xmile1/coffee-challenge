@@ -12,9 +12,8 @@ const Button = styled.button`
 const RequestHandler = ({statusCode, handleClick, resStatus}) =>(
   <Div>
     <Button onClick={handleClick}>
-      Request {statusCode}
+      Request {statusCode || 200}
     </Button>
-
     <Div>
       {resStatus}
     </Div>

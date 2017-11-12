@@ -30,11 +30,11 @@ const Coffee = CupDiv.extend`
 `
 
 
-const Cup = ({index, game, coffeeQuantity, drink})=>(
+const Cup = ({index, game, coffeeQuantity, drink, disableButton})=>(
 <CupDiv key={index}>
 <Coffee coffeeQuantity={coffeeQuantity}>
 </Coffee>
-{game && <Drink onClick={drink}>Drink</Drink>}
+{game && <Drink disabled={disableButton} onClick={drink}>Drink</Drink>}
 </CupDiv>
 )
 

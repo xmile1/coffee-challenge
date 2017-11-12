@@ -12,7 +12,7 @@ let initialState = {
   status: '',
   intervalId: 0,
   api:{
-    statusCode: 200,
+    statusCode: undefined,
     resStatus: ''
   }
 };

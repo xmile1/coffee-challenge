@@ -5,10 +5,6 @@ import {setCurrentCoffee, setGameStatus} from 'actions'
 
 class CupContainer extends Component{
 
-  constructor(props){
-   super(props)
-  }
-
 componentWillReceiveProps(nextProps){
   if (nextProps.coffeeQuantity !== this.props.coffeeQuantity){
     let currentQuantity = this.props.currentQuantity(nextProps.index)
@@ -23,9 +19,12 @@ componentWillReceiveProps(nextProps){
 }
 }
 
+drink = ()=>{
+    this.props.setCurrentCoffee(0, this.props.index)
+}
+
   render(){
-    let props = {...this.props, coffeeQuantity: this.props.currentQuantity(this.props.index)}
-console.log(props, "props")
+    let props = {...this.props, coffeeQuantity: this.props.currentQuantity(this.props.index),  drink: this.drink}
     return(
     <Cup {...props} />
     )

@@ -1,6 +1,6 @@
 import React from 'react'
 const GameState = ({ gameState }) => (
-  <div>
+  <div id='game-state'>
     {gameState}
   </div>
 )

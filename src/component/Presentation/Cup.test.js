@@ -5,7 +5,7 @@ import Cup from './Cup.jsx';
 
 test('renders <Cup/> Component', t => {
   let wrapper = shallow(<Cup/>)
-  t.is(wrapper.find('#cupDiv').length, 1);
+  t.is(wrapper.find('#cup-div').length, 1);
 });
 
 

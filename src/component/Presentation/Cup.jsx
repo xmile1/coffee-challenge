@@ -42,7 +42,7 @@ const GreenButton = MaterialButton.extend`
 
 
 const Cup = ({ index, game, coffeeQuantity, drink, disableButton }) => (
-  <CupDiv id='cupDiv' key={index}>
+  <CupDiv id='cup-div' key={index}>
     <Coffee id='coffee' coffeeQuantity={coffeeQuantity}></Coffee>
     {game && <GreenButton id='drink'
       disabled={disableButton}

@@ -25,6 +25,7 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^4.10.2",
     "redux-thunk": "^2.2.0",
+    "rewire": "^3.0.0",
     "styled-components": "^2.2.3"
   },
   "babel": {
@@ -60,6 +61,7 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.4.0",
     "ignore-styles": "^5.0.1",
+    "sinon": "^4.1.2",
     "style-loader": "^0.19.0",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"

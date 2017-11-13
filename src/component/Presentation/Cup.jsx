@@ -42,7 +42,7 @@ padding: 4px 13px;
 
 
 const Cup = ({ index, game, coffeeQuantity, drink, disableButton }) => (
-  <CupDiv key={index}>
+  <CupDiv className='cas' key={index}>
     <Coffee coffeeQuantity={coffeeQuantity}></Coffee>
     {game && <GreenButton
       disabled={disableButton}

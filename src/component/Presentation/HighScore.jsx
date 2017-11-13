@@ -9,7 +9,7 @@ const Div = styled.div`
 `
 
 const HighScore = ({ score, cups }) => (
-  <Div>
+  <Div id="high-score">
     Highscore: {score}ml with {cups}cups
   </Div>
 )

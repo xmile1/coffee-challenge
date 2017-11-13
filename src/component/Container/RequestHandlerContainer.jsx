@@ -10,7 +10,7 @@ class RequestHandlerContainer extends Component {
   }
 
   render() {
-    return (<RequestHandler {...this.props} handleClick={this.handleClick} />)
+    return (<RequestHandler id="req" {...this.props} handleClick={this.handleClick} />)
   }
 }
 

@@ -9,7 +9,8 @@
     "build": "webpack -p",
     "build-dev": "webpack -w",
     "start": "webpack-dev-server",
-    "test": "env NODE_PATH=src ava"
+    "test": "env NODE_PATH=src ava",
+    "test:watch": "npm test -- --watch"
   },
   "dependencies": {
     "axios": "^0.17.1",

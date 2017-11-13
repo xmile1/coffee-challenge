@@ -16,34 +16,34 @@ const CupDiv = styled.div`
 
 const Coffee = CupDiv.extend`
   background-color: #C8E6C9;
-    height: ${({ coffeeQuantity }) => coffeeQuantity ? `${coffeeQuantity}%` : '0%'};
-    bottom: 0px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    border-style: none;
-    border-radius: unset;
-    transition: all 0.5s ease-out;
+  height: ${({ coffeeQuantity }) => coffeeQuantity ? `${coffeeQuantity}%` : '0%'};
+  bottom: 0px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-style: none;
+  border-radius: unset;
+  transition: all 0.5s ease-out;
 `
 
 const GreenButton = MaterialButton.extend`
-padding: 4px 13px;
-    background-color: #388E3C;
-    height: 25px;
-    &:hover {
-     background-color: #FF5252;
-   }
-   &:disabled{
-     background-color: #BDBDBD;
-     cursor:unset;
-   }
+  padding: 4px 13px;
+  background-color: #388E3C;
+  height: 25px;
+  &:hover {
+    background-color: #FF5252;
+  }
+  &:disabled{
+    background-color: #BDBDBD;
+    cursor:unset;
+  }
 `
 
 
 const Cup = ({ index, game, coffeeQuantity, drink, disableButton }) => (
   <CupDiv id='cupDiv' key={index}>
-    <Coffee coffeeQuantity={coffeeQuantity}></Coffee>
+    <Coffee id='coffee' coffeeQuantity={coffeeQuantity}></Coffee>
     {game && <GreenButton id='drink'
       disabled={disableButton}
       onClick={drink}>

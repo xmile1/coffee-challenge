@@ -26,6 +26,7 @@ export const setCurrentCoffee = (quantity, index) => (dispatch) => {
 }
 
 export const setGameStatus = (status, intervalId, score, cups, currentHighScore) => (dispatch) => {
+  //TODO: use promise on multiple dispatch
   if (status === 'gameover') dispatch({type: END_GAME}); dispatch(setHighScore(score, cups, currentHighScore))
   if (status === 'startgame') dispatch({type: START_GAME, intervalId})
   if (status === 'pausegame') dispatch({type: PAUSE_GAME})
@@ -37,17 +38,14 @@ export const updateScore = (currentScore, quantity) => (dispatch) => {
 }
 
 export const setHighScore = (score, cups, currentHighScore) => dispatch =>{
-// TODO: consider Number of cups
+// TODO: consider Number of cups to determine highscore
   if (score > currentHighScore) dispatch({type: UPDATE_HIGH_SCORE, score, cups})
 }
 
 export const requestAPI = (statusCode=200) => (dispatch) => {
-  let newStatusCode
-  switch(statusCode){
-    case 200: newStatusCode = 400
-    break;
-    default: newStatusCode = 200
-  }
+  let newStatusCode = 200
+  if (statusCode === 200) newStatusCode = 400
+  
   axios.get(`${BASE_URL}/status/${statusCode}`).then((res)=>{
     dispatch({type: SET_API_RESPONSE, resStatus: res.status})
   }).catch((err)=>{

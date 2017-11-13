@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { MaterialButton } from 'style/reuse'
 
+// TODO: Update responsiveness of cups
 const CupDiv = styled.div`
   height: 100px;
   width: 100px;

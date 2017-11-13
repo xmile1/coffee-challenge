@@ -1,4 +1,15 @@
-import {SET_CUPS, ADD_QUANTITY, SET_CURRENT_COFFEE, UPDATE_SCORE, UPDATE_HIGH_SCORE, END_GAME, START_GAME, PAUSE_GAME, RESUME_GAME, SET_API_RESPONSE, UPDATE_STATUS_CODE} from './actions'
+import {
+  SET_CUPS,
+  ADD_QUANTITY,
+  SET_CURRENT_COFFEE,
+  UPDATE_SCORE,
+  UPDATE_HIGH_SCORE,
+  END_GAME,
+  START_GAME,
+  PAUSE_GAME,
+  RESUME_GAME,
+  SET_API_RESPONSE,
+  UPDATE_STATUS_CODE} from './actions'
 
 let initialState = {
   HighScore: {
@@ -19,17 +30,28 @@ let initialState = {
 
 const reducer = (state=initialState, action)=>{
   switch(action.type){
-    case SET_CUPS:return Object.assign({}, state, {"noOfCups": action.cups})
-    case ADD_QUANTITY:return Object.assign({}, state, {"quantity": action.quantity})
-    case SET_CURRENT_COFFEE: return { ...state,currentQuantity: {...state.currentQuantity, [action.index]: action.quantity}}
-    case UPDATE_SCORE: return {...state, score: action.score}
-    case UPDATE_HIGH_SCORE: return {...state, HighScore:{...state.HighScore, cups:action.cups, score:action.score}}
-    case END_GAME: return {...state, status:'Game Over'}
-    case PAUSE_GAME: return {...state, status:'Game Paused'}
-    case RESUME_GAME: return {...state, status:'Game Started', intervalId: action.intervalId}
-    case START_GAME: return {...state, status:'Game Started',  score:0, intervalId: action.intervalId, currentQuantity:{} }
-    case SET_API_RESPONSE: return {...state, api:{...state.api, resStatus: action.resStatus} }
-    case UPDATE_STATUS_CODE: return {...state, api:{...state.api, statusCode: action.statusCode} }
+    case SET_CUPS:
+      return Object.assign({}, state, {"noOfCups": action.cups})
+    case ADD_QUANTITY:
+      return Object.assign({}, state, {"quantity": action.quantity})
+    case SET_CURRENT_COFFEE:
+      return { ...state,currentQuantity: {...state.currentQuantity, [action.index]: action.quantity}}
+    case UPDATE_SCORE:
+      return {...state, score: action.score}
+    case UPDATE_HIGH_SCORE:
+      return {...state, HighScore:{...state.HighScore, cups:action.cups, score:action.score}}
+    case END_GAME:
+      return {...state, status:'Game Over'}
+    case PAUSE_GAME: 
+      return {...state, status:'Game Paused'}
+    case RESUME_GAME:
+      return {...state, status:'Game Started', intervalId: action.intervalId}
+    case START_GAME:
+      return {...state, status:'Game Started',  score:0, intervalId: action.intervalId, currentQuantity:{} }
+    case SET_API_RESPONSE:
+      return {...state, api:{...state.api, resStatus: action.resStatus} }
+    case UPDATE_STATUS_CODE:
+      return {...state, api:{...state.api, statusCode: action.statusCode} }
 
     default: return state
   }

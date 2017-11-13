@@ -8,11 +8,12 @@ class CupContainer extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.coffeeQuantity !== this.props.coffeeQuantity) {
       let currentQuantity = this.props.currentQuantity(nextProps.index)
-      let coffeeQuantity = parseInt(currentQuantity, 10) ? currentQuantity + nextProps.coffeeQuantity : nextProps.coffeeQuantity
+      let coffeeQuantity = parseInt(currentQuantity, 10) ?
+        currentQuantity + nextProps.coffeeQuantity : nextProps.coffeeQuantity
 
       if (coffeeQuantity >= 100) {
         clearInterval(this.props.intervalId)
-        coffeeQuantity = 0
+        coffeeQuantity = 100
         this.props.setGameStatus('gameover', null, this.props.score, this.props.numberOfCups, this.props.currentHighScore);
       }
       this.props.setCurrentCoffee(coffeeQuantity, this.props.index)
@@ -26,7 +27,12 @@ class CupContainer extends Component {
   }
 
   render() {
-    let props = { ...this.props, coffeeQuantity: this.props.currentQuantity(this.props.index), drink: this.drink, disableButton: this.props.gameStatus !== 'Game Started' }
+    let props = {
+      ...this.props,
+      coffeeQuantity: this.props.currentQuantity(this.props.index),
+      drink: this.drink,
+      disableButton: this.props.gameStatus !== 'Game Started'
+    }
     return (
       <Cup {...props} />
     )
@@ -34,7 +40,14 @@ class CupContainer extends Component {
 }
 
 const mapState = (state) => {
-  return { numberOfCups: state.noOfCups, currentQuantity: (index) => state.currentQuantity[index], intervalId: state.intervalId, score: state.score, currentHighScore: state.HighScore.score, gameStatus: state.status }
+  return {
+    numberOfCups: state.noOfCups,
+    currentQuantity: (index) => state.currentQuantity[index],
+    intervalId: state.intervalId,
+    score: state.score,
+    currentHighScore: state.HighScore.score,
+    gameStatus: state.status
+  }
 }
 
 const mapDispatch = { setCurrentCoffee, setGameStatus, updateScore }

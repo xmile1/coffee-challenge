@@ -7,9 +7,7 @@ import { addCoffee, setGameStatus } from 'actions'
 class GameContainer extends Component {
 
   componentDidMount = () => {
-        let time = this.getRandomInt(300, 3000)
-    let intervalId = setInterval(this.addCoffee, time);
-    this.props.setGameStatus('startgame', intervalId)
+    this.startTime('startgame')
   }
 
   addCoffee = () => {
@@ -18,12 +16,16 @@ class GameContainer extends Component {
     this.props.addCoffee(quantity)
   }
 
+startTime = (status) => {
+  let time = this.getRandomInt(300, 3000)
+  let intervalId = setInterval(this.addCoffee, time);
+  this.props.setGameStatus(status, intervalId)
+}
+
 
   handlePause = () => {
     if (this.props.gameState === 'Game Paused') {
-        let time = this.getRandomInt(300, 3000)
-      let intervalId = setInterval(this.addCoffee, time);
-      return this.props.setGameStatus('resumegame', intervalId)
+        this.startTime('resumegame')
     }
     if (this.props.gameState === 'Game Over') {
       let intervalId = setInterval(this.addCoffee, 3000);
@@ -41,9 +43,9 @@ class GameContainer extends Component {
   }
 
   render() {
-    let { numberOfCups, quantity, gameState, score } = this.props
+    let { quantity } = this.props
     return (
-      <Game numberOfCups={numberOfCups} coffeeQuantity={quantity} gameState={gameState} score={score} handlePause={this.handlePause} />
+      <Game {...this.props} coffeeQuantity={quantity} handlePause={this.handlePause} />
     )
   }
 }

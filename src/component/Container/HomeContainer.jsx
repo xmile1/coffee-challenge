@@ -9,7 +9,6 @@ import { Div } from 'style/reuse'
 
 const Footer = styled.div`
   margin-top: 20px
-
 `
 
 const Header = styled.div`
@@ -28,16 +27,20 @@ class HomeContainer extends Component {
     this.props.setCups(value)
   }
 
-
   render() {
     const { numberOfCups } = this.props
     return (
       <Div>
         <Header> Classic Coffee Challenge</Header>
         <Info>
-          Select the number of cups for your next game, more cups is more difficult
+          Select the number of cups for your next game,
+          more cups is more difficult
         </Info>
-        <Home numberOfCups={numberOfCups} setCups={this.setCups} startGame={this.startGame} />
+        <Home
+          numberOfCups={numberOfCups}
+          setCups={this.setCups}
+          startGame={this.startGame}
+        />
         <Footer>
           <Link to="/req">Visit Request Page</Link>
         </Footer>

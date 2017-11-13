@@ -36,7 +36,7 @@ const Home = ({ startGame, numberOfCups, setCups }) => (
     <HighScore />
     <CupWrapper name="cup-wrapper">
       {Array.apply(null, Array(numberOfCups)).map((e, i) => {
-        return (<Cup index={i} />)
+        return (<Cup key={i} index={i} />)
       })}
     </CupWrapper>
     <DivWrapper>

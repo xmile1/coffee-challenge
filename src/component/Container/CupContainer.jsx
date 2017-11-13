@@ -12,9 +12,10 @@ class CupContainer extends Component {
         currentQuantity + nextProps.coffeeQuantity : nextProps.coffeeQuantity
 
       if (coffeeQuantity >= 100) {
+        let {score, numberOfCups, currentHighScore} = this.props
         clearInterval(this.props.intervalId)
         coffeeQuantity = 100
-        this.props.setGameStatus('gameover', null, this.props.score, this.props.numberOfCups, this.props.currentHighScore);
+        this.props.setGameStatus('gameover', null, score, numberOfCups, currentHighScore);
       }
       this.props.setCurrentCoffee(coffeeQuantity, this.props.index)
     }

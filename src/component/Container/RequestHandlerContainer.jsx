@@ -15,7 +15,10 @@ class RequestHandlerContainer extends Component {
 }
 
 const mapState = (state) => {
-  return { statusCode: state.api.statusCode, resStatus: state.api.resStatus }
+  return {
+    statusCode: state.api.statusCode,
+    resStatus: state.api.resStatus
+  }
 }
 
 const mapDispatch = { requestAPI }

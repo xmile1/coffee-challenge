@@ -30,7 +30,7 @@ const Game = ({ score, numberOfCups, handlePause, coffeeQuantity, gameState }) =
     </Wrapper>
     <CupWrapper>
       {Array.apply(null, Array(numberOfCups)).fill(0).map((e, i) => {
-        return (<CupContainer index={i} game={true} coffeeQuantity={coffeeQuantity} />)
+        return (<CupContainer key={i} index={i} game={true} coffeeQuantity={coffeeQuantity} />)
       })}
     </CupWrapper>
     <Wrapper marginTop={"20px"} justify={"center"}>

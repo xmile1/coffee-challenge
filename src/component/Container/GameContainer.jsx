@@ -25,7 +25,7 @@ startTime = (status) => {
 
   handlePause = () => {
     if (this.props.gameState === 'Game Paused') {
-        this.startTime('resumegame')
+        return this.startTime('resumegame')
     }
     if (this.props.gameState === 'Game Over') {
       let intervalId = setInterval(this.addCoffee, 3000);
